@@ -19,7 +19,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.go</url-pattern>
 	</filter-mapping>
 
 
@@ -48,7 +48,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.go</url-pattern>
 	</servlet-mapping>
 
 	<context-param>

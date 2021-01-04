@@ -20,7 +20,7 @@ public class UserController {
 	@Resource(name = "userService")
 	private UserService userService;
 
-	@RequestMapping(value = "/user/userMgmtList.do")
+	@RequestMapping(value = "/user/userMgmtList.go")
 	public ModelAndView userMgmtList(Map<String, Object> commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/user/userMgmtList");
 		List<Map<String, Object>> list = userService.selectUserList(commandMap);
