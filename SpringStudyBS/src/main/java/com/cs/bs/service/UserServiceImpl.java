@@ -1,4 +1,4 @@
-package com.cs.bs.study.service;
+package com.cs.bs.service;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.cs.bs.study.dao.UserDAO;
+import com.cs.bs.dao.UserDAO;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {

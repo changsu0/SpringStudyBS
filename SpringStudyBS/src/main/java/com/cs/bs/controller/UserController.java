@@ -1,4 +1,4 @@
-package com.cs.bs.study.controller;
+package com.cs.bs.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cs.bs.study.service.UserService;
+import com.cs.bs.service.UserService;
 
 @Controller
 public class UserController {

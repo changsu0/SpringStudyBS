@@ -1,4 +1,4 @@
-package com.cs.bs.study.service;
+package com.cs.bs.service;
 
 import java.util.List;
 import java.util.Map;

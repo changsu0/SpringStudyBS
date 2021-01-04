@@ -1,4 +1,4 @@
-package com.cs.bs.study.dao;
+package com.cs.bs.dao;
 
 import java.util.List;
 import java.util.Map;
