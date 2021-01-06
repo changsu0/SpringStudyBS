@@ -1,11 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
-	<select id="selectUserList" parameterType="hashmap" resultType="hashmap"> 
+	<select id="selectUserList" parameterType="hashmap" resultType="com.cs.bs.common.utils.CamelListMap"> 
 		<![CDATA[ 
-			SELECT user_id, user_nm FROM kcs_user 
+			SELECT 
+				(ROW_NUMBER() OVER()) AS row_no
+				, emp_no
+				, emp_nm
+				, dept_no
+				, email
+				, CASE when birth = '' then '' ELSE to_char(to_date(birth, 'YYMMDD'), 'YY. MM. DD') END AS birth
+				, CASE when st_dt = '' then '' ELSE to_char(to_date(st_dt, 'YYMMDD'), 'YY. MM. DD') END AS st_dt
+				, CASE when en_dt = '' then '' ELSE to_char(to_date(en_dt, 'YYMMDD'), 'YY. MM. DD') END AS en_dt
+			FROM kcs_emp
 		]]>
 	</select>
+
+	<select id="selectUser" parameterType="hashmap" resultType="com.cs.bs.common.utils.CamelListMap"> 
+		<![CDATA[ 
+			SELECT 
+				  emp_no
+				, emp_nm
+				, dept_no
+				, email
+				, birth
+				, st_dt
+				, en_dt
+			FROM kcs_emp
+			WHERE emp_no = #{empNo}
+		]]>
+	</select>
+	
+	<insert id="insertUser">
+		<![CDATA[ 
+		INSERT INTO kcs_emp
+		(emp_no, emp_nm, dept_no, email, birth, st_dt, en_dt)
+		VALUES(#{empNo}, #{empNm}, #{deptNo}, #{email}, #{birth}, #{stDt}, #{enDt})
+		]]>
+	</insert>
+	
+	<update id="updateUser">
+		UPDATE kcs_emp SET 
+			  emp_nm = #{empNm}
+			, dept_no = #{deptNo}
+			, email = #{email}
+			, birth = #{birth}
+			, st_dt = #{stDt}
+			, en_dt = #{enDt}
+		WHERE emp_no = #{empNo}
+	</update>
+	
+	<delete id="deleteUser">
+		DELETE FROM kcs_emp
+		WHERE emp_no = #{empNo}
+	</delete>
+	
 
 </mapper>
 

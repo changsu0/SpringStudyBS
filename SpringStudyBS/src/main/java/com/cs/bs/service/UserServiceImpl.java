@@ -23,4 +23,24 @@ public class UserServiceImpl implements UserService {
 		return userDAO.selectUserList(map);
 	}
 
+	@Override
+	public int insertUser(Map<String, Object> map) {
+		return userDAO.insertUser(map);
+	}
+
+	@Override
+	public Map<String, Object> selectUser(Map<String, Object> map) {
+		return userDAO.selectUser(map);
+	}
+
+	@Override
+	public int updateUser(Map<String, Object> map) {
+		return userDAO.updateUser(map);
+	}
+
+	@Override
+	public int deleteUser(String empNo) {
+		return userDAO.deleteUser(empNo);
+	}
+
 }

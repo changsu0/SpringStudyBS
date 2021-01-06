@@ -14,4 +14,20 @@ public class UserDAO extends AbstractDAO {
 		return (List<Map<String, Object>>) selectList("user.selectUserList", map);
 	}
 
+	public int insertUser(Map<String, Object> map) {
+		return (int) insert("user.insertUser", map);
+	}
+
+	public int updateUser(Map<String, Object> map) {
+		return (int) update("user.updateUser", map);
+	}
+
+	public int deleteUser(String empNo) {
+		return (int) delete("user.deleteUser", empNo);
+	}
+
+	public Map<String, Object> selectUser(Map<String, Object> map) {
+		return (Map<String, Object>) selectOne("user.selectUser", map);
+	}
+
 }
